@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AppointmentButton } from "./components/AppointmentButton";
 import { ToggleTheme } from "./components/ToggleTheme";
 
 const whatsappLink =
   "https://wa.me/522222031068?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Psic%C3%B3loga%20Karla%20Figueroa.";
-const calendarLink = "https://calendar.app.google/ekuSLLvPNgWGGFhm8";
 
 const services = [
   {
@@ -106,16 +106,13 @@ export default function Home() {
               width={116}
               height={60}
               priority
-              className="h-12 w-auto"
+              className="h-12 w-auto md:h-16 lg:h-20"
             />
-            <span className="hidden text-sm font-semibold text-foreground sm:block">
-              Psicóloga Karla Figueroa
-            </span>
           </a>
           <div className="flex items-center gap-3">
             <Link
               href="/sobre-mi"
-              className="inline-flex h-10 items-center justify-center rounded-full border border-footer-blue/25 bg-surface px-4 text-sm font-semibold text-footer-dark-blue transition-colors hover:bg-key-yellow"
+              className="inline-flex h-10 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-4 text-sm font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
             >
               Sobre mí
             </Link>
@@ -123,7 +120,7 @@ export default function Home() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden h-10 items-center justify-center rounded-full bg-key-pink px-5 text-sm font-semibold text-background transition-colors hover:bg-footer-blue sm:inline-flex"
+              className="hidden h-10 items-center justify-center rounded-full bg-key-pink px-5 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-key-yellow hover:text-footer-dark-blue sm:inline-flex"
             >
               WhatsApp
             </a>
@@ -135,10 +132,7 @@ export default function Home() {
       <section id="inicio" className="px-5 py-14 sm:px-8 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-footer-blue">
-              Psicóloga en Puebla y San Andrés Cholula
-            </p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-foreground sm:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-foreground sm:text-6xl">
               Terapia psicológica para recuperar tu bienestar emocional y mental
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
@@ -149,19 +143,12 @@ export default function Home() {
               emocionales.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={calendarLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-key-pink px-6 text-base font-semibold text-background transition-colors hover:bg-footer-blue"
-              >
-                Agendar cita
-              </a>
+              <AppointmentButton>Agendar cita</AppointmentButton>
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-footer-blue/35 bg-surface px-6 text-base font-semibold text-footer-dark-blue transition-colors hover:bg-key-yellow"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
               >
                 Enviar WhatsApp
               </a>
@@ -277,14 +264,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <a
-              href={calendarLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue transition-colors hover:bg-disculparse"
-            >
-              Agendar cita en línea
-            </a>
+            <AppointmentButton variant="yellow">Agendar cita en línea</AppointmentButton>
             <a
               href={whatsappLink}
               target="_blank"

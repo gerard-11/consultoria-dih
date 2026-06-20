@@ -1,23 +1,47 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { AppointmentButton } from "../components/AppointmentButton";
 import { ToggleTheme } from "../components/ToggleTheme";
 
 const whatsappLink =
   "https://wa.me/522222031068?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Psic%C3%B3loga%20Karla%20Figueroa.";
-const calendarLink = "https://calendar.app.google/ekuSLLvPNgWGGFhm8";
 
 const credentials = [
-  "Licenciada en Psicología por la UPAEP, titulada por promedio.",
-  "Maestría en Pedagogía por la Universidad Popular Autónoma del Estado de Puebla.",
-  "Formación en psicopedagogía y terapia emocional sistémica.",
-  "Diplomado Internacional en Psicoterapia de Pareja, Universidad Autónoma de Tlaxcala / feelink, 120 horas.",
-  "Diplomado en Terapia Emocional Sistémica, feelink, 120 horas.",
-  "Diplomado en Terapia de Pareja Sexual y Familiar.",
-  "Diplomado en Modelos Psicológicos de Terapia Breve.",
-  "Diplomado Internacional en Adicciones.",
-  "Diplomado en Modelo Gottman para parejas e infidelidades.",
-  "Certificación en impartición de cursos de formación del capital humano, estándar CONOCER EC0217.",
+  {
+    category: "Base profesional",
+    color: "bg-disculparse",
+    items: [
+      "Licenciada en Psicología por la UPAEP, titulada por promedio.",
+      "Maestría en Pedagogía por la Universidad Popular Autónoma del Estado de Puebla.",
+      "Formación en psicopedagogía.",
+    ],
+  },
+  {
+    category: "Psicoterapia y pareja",
+    color: "bg-declaracion",
+    items: [
+      "Diplomado Internacional en Psicoterapia de Pareja, Universidad Autónoma de Tlaxcala / feelink, 120 horas.",
+      "Diplomado en Terapia de Pareja Sexual y Familiar.",
+      "Diplomado en Modelo Gottman para parejas e infidelidades.",
+    ],
+  },
+  {
+    category: "Enfoques clínicos",
+    color: "bg-humor",
+    items: [
+      "Diplomado en Terapia Emocional Sistémica, feelink, 120 horas.",
+      "Diplomado en Modelos Psicológicos de Terapia Breve.",
+      "Diplomado Internacional en Adicciones.",
+    ],
+  },
+  {
+    category: "Capacitación y desarrollo humano",
+    color: "bg-tranquilo",
+    items: [
+      "Certificación en impartición de cursos de formación del capital humano, estándar CONOCER EC0217.",
+    ],
+  },
 ];
 
 const approaches = [
@@ -41,7 +65,7 @@ const experience = [
 export const metadata: Metadata = {
   title: "Sobre mí | Psicóloga Karla Figueroa en Puebla y Cholula",
   description:
-    "Conoce a la Psicóloga Karla Leticia Figueroa Hernández: formación, certificaciones, experiencia clínica y enfoque terapéutico en San Andrés Cholula, Puebla.",
+    "Psicóloga Karla Leticia Figueroa Hernández: formación, certificaciones, experiencia clínica y enfoque terapéutico en San Andrés Cholula, Puebla.",
   keywords: [
     "Psicóloga Karla Figueroa",
     "Karla Leticia Figueroa Hernández",
@@ -67,11 +91,8 @@ export default function AboutPage() {
               width={116}
               height={60}
               priority
-              className="h-12 w-auto"
+              className="h-12 w-auto md:h-16 lg:h-20"
             />
-            <span className="hidden text-sm font-semibold text-foreground sm:block">
-              Consultoría DIH
-            </span>
           </Link>
           <div className="flex items-center gap-3">
             <Link
@@ -84,7 +105,7 @@ export default function AboutPage() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden h-10 items-center justify-center rounded-full bg-key-pink px-5 text-sm font-semibold text-background transition-colors hover:bg-footer-blue sm:inline-flex"
+              className="hidden h-10 items-center justify-center rounded-full bg-key-pink px-5 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-key-yellow hover:text-footer-dark-blue sm:inline-flex"
             >
               WhatsApp
             </a>
@@ -95,15 +116,19 @@ export default function AboutPage() {
 
       <section className="px-5 py-14 sm:px-8 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-[8px] border border-footer-blue/15 bg-surface shadow-sm lg:mx-0">
-            <Image
-              src="/brand/foto-karla.jpeg"
-              alt="Psicóloga Karla Leticia Figueroa Hernández en Consultoría DIH"
-              width={690}
-              height={1117}
-              priority
-              className="h-auto w-full object-cover"
-            />
+          <div className="relative mx-auto w-full max-w-sm lg:mx-0">
+            <div className="absolute -inset-3 rounded-[8px] bg-key-yellow" />
+            <div className="absolute -bottom-4 -right-4 h-28 w-28 rounded-[8px] bg-humor" />
+            <figure className="relative overflow-hidden rounded-[8px] border border-footer-blue/15 bg-surface p-2 shadow-sm">
+              <Image
+                src="/brand/foto-karla.jpeg"
+                alt="Psicóloga Karla Leticia Figueroa Hernández en Consultoría DIH"
+                width={690}
+                height={1117}
+                priority
+                className="aspect-[4/5] w-full object-cover object-[center_10px]"
+              />
+            </figure>
           </div>
 
           <div>
@@ -126,19 +151,12 @@ export default function AboutPage() {
               bienestar emocional y mental.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={calendarLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center rounded-full bg-key-pink px-6 text-base font-semibold text-background transition-colors hover:bg-footer-blue"
-              >
-                Agendar cita
-              </a>
+              <AppointmentButton>Agendar cita</AppointmentButton>
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-footer-blue/35 bg-surface px-6 text-base font-semibold text-footer-dark-blue transition-colors hover:bg-key-yellow"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
               >
                 Enviar WhatsApp
               </a>
@@ -148,8 +166,8 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-surface px-5 py-14 sm:px-8" aria-labelledby="curriculum-title">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="max-w-4xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-footer-blue">
               Currículum y certificaciones
             </p>
@@ -162,15 +180,31 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid gap-3">
-            {credentials.map((credential) => (
-              <article
-                key={credential}
-                className="rounded-[8px] border border-footer-blue/15 bg-background p-4 shadow-sm"
-              >
-                <p className="text-base leading-7 text-foreground">{credential}</p>
-              </article>
-            ))}
+          <div className="mt-8 max-h-[26rem] overflow-y-auto pr-2 sm:max-h-none sm:overflow-visible sm:pr-0">
+            <div className="grid gap-4">
+              {credentials.map((group) => (
+                <article
+                  key={group.category}
+                  className="rounded-[8px] border border-footer-blue/15 bg-background p-4 shadow-sm"
+                >
+                  <div
+                    className={[
+                      "mb-4 inline-flex rounded-full px-3 py-1 text-sm font-semibold text-text-primary",
+                      group.color,
+                    ].join(" ")}
+                  >
+                    {group.category}
+                  </div>
+                  <ul className="grid gap-3">
+                    {group.items.map((credential) => (
+                      <li key={credential} className="text-base leading-7 text-foreground">
+                        {credential}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -227,14 +261,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <a
-              href={calendarLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue transition-colors hover:bg-disculparse"
-            >
-              Agendar cita en línea
-            </a>
+            <AppointmentButton variant="yellow">Agendar cita en línea</AppointmentButton>
             <a
               href={whatsappLink}
               target="_blank"
