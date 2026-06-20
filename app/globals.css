@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  /* Color Palette: Las Llaves para Resolver Conflictos */
+  --bg-creamy: #fffdf0;
+  --text-primary: #344066;
+  --key-yellow: #ffd166;
+  --key-pink: #ff6f91;
+  --color-disculparse: #a8e6cf;
+  --color-tranquilo: #ffb3ba;
+  --color-turnos: #88d49e;
+  --color-declaracion: #fde2b4;
+  --color-dejarlo: #ff8b94;
+  --color-humor: #a8d0e6;
+  --footer-blue: #3a89c8;
+  --footer-dark-blue: #1c335e;
+
+  --background: var(--bg-creamy);
+  --foreground: var(--text-primary);
+  --surface: #ffffff;
+  --muted: #5f6b8f;
+}
+
+:root[data-theme="dark"] {
+  --background: var(--footer-dark-blue);
+  --foreground: var(--bg-creamy);
+  --surface: #263f73;
+  --muted: #c8d5ea;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-bg-creamy: var(--bg-creamy);
+  --color-text-primary: var(--text-primary);
+  --color-key-yellow: var(--key-yellow);
+  --color-key-pink: var(--key-pink);
+  --color-disculparse: var(--color-disculparse);
+  --color-tranquilo: var(--color-tranquilo);
+  --color-turnos: var(--color-turnos);
+  --color-declaracion: var(--color-declaracion);
+  --color-dejarlo: var(--color-dejarlo);
+  --color-humor: var(--color-humor);
+  --color-footer-blue: var(--footer-blue);
+  --color-footer-dark-blue: var(--footer-dark-blue);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
