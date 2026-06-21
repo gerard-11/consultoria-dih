@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { AppointmentButton } from "../components/AppointmentButton";
-import { ToggleTheme } from "../components/ToggleTheme";
-
-const whatsappLink =
-  "https://wa.me/522222031068?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Psic%C3%B3loga%20Karla%20Figueroa.";
+import { SiteHeader } from "../components/SiteHeader";
+import { buildMetadata, whatsappUrl } from "../seo";
 
 const credentials = [
   {
@@ -62,10 +59,11 @@ const experience = [
   "Adolescentes, adultos, parejas y familias",
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: "Sobre mí | Psicóloga Karla Figueroa en Puebla y Cholula",
   description:
     "Psicóloga Karla Leticia Figueroa Hernández: formación, certificaciones, experiencia clínica y enfoque terapéutico en San Andrés Cholula, Puebla.",
+  path: "/sobre-mi",
   keywords: [
     "Psicóloga Karla Figueroa",
     "Karla Leticia Figueroa Hernández",
@@ -74,45 +72,12 @@ export const metadata: Metadata = {
     "curriculum psicóloga Puebla",
     "terapia en San Andrés Cholula",
   ],
-};
+});
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background text-foreground transition-colors">
-      <header className="border-b border-footer-blue/15 bg-background/95 px-5 py-4 sm:px-8">
-        <nav
-          className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4"
-          aria-label="Navegación principal"
-        >
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/brand/consultoria-dih-logo.png"
-              alt="Consultoría DIH Psicóloga Karla Figueroa"
-              width={116}
-              height={60}
-              priority
-              className="h-12 w-auto md:h-16 lg:h-20"
-            />
-          </Link>
-          <div className="flex items-center gap-3">
-            <Link
-              href="/"
-              className="hidden text-sm font-semibold text-muted transition-colors hover:text-footer-blue sm:inline-flex"
-            >
-              Inicio
-            </Link>
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden h-10 items-center justify-center rounded-full bg-key-pink px-5 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-key-yellow hover:text-footer-dark-blue sm:inline-flex"
-            >
-              WhatsApp
-            </a>
-            <ToggleTheme />
-          </div>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section className="px-5 py-14 sm:px-8 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
@@ -153,7 +118,7 @@ export default function AboutPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <AppointmentButton>Agendar cita</AppointmentButton>
               <a
-                href={whatsappLink}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
@@ -263,7 +228,7 @@ export default function AboutPage() {
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
             <AppointmentButton variant="yellow">Agendar cita en línea</AppointmentButton>
             <a
-              href={whatsappLink}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-full border border-bg-creamy/35 px-6 text-base font-semibold text-bg-creamy transition-colors hover:bg-bg-creamy hover:text-footer-dark-blue"

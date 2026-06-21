@@ -1,133 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AppointmentButton } from "./components/AppointmentButton";
-import { ToggleTheme } from "./components/ToggleTheme";
+import { SiteHeader } from "./components/SiteHeader";
+import { whatsappUrl } from "./seo";
+import { servicePages } from "./servicios/services";
 
-const whatsappLink =
-  "https://wa.me/522222031068?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20la%20Psic%C3%B3loga%20Karla%20Figueroa.";
-
-const services = [
-  {
-    title: "Ansiedad y estrés crónico",
-    description:
-      "Herramientas para recuperar la calma, manejar preocupación constante, pensamientos negativos, estrés y burnout.",
-    color: "bg-humor",
-  },
-  {
-    title: "Depresión y agotamiento emocional",
-    description:
-      "Acompañamiento respetuoso para recuperar motivación, energía y sentido de vida a tu ritmo.",
-    color: "bg-tranquilo",
-  },
-  {
-    title: "Terapia de pareja",
-    description:
-      "Trabajo terapéutico para mejorar comunicación, confianza, conflictos recurrentes y vida sexual.",
-    color: "bg-declaracion",
-  },
-  {
-    title: "Sexología y bienestar sexual",
-    description:
-      "Atención profesional para dificultades sexuales, deseo, culpa, vínculos de pareja y bloqueos emocionales.",
-    color: "bg-dejarlo",
-  },
-  {
-    title: "Duelo y separación",
-    description:
-      "Acompañamiento para pérdidas, rupturas de pareja, cambios importantes de vida y experiencias traumáticas.",
-    color: "bg-disculparse",
-  },
-  {
-    title: "Autoestima y habilidades emocionales",
-    description:
-      "Fortalece confianza, autoconocimiento, amor propio y herramientas para tomar mejores decisiones.",
-    color: "bg-turnos",
-  },
-  {
-    title: "Terapia para adolescentes y familias",
-    description:
-      "Apoyo ante ansiedad, depresión, autolesiones, duelos, problemas escolares y conflictos familiares.",
-    color: "bg-humor",
-  },
-  {
-    title: "Talleres para empresas e instituciones",
-    description:
-      "Habilidades emocionales, comunicación, liderazgo, trabajo en equipo, NOM-035 y desarrollo humano.",
-    color: "bg-declaracion",
-  },
-];
+const featuredServices = servicePages;
 
 const trustItems = [
   "Más de 15 años de experiencia profesional",
-  "Más de 100 reseñas positivas en Google",
   "Terapia presencial en San Andrés Cholula y atención en línea",
   "Enfoque humano, ético, confidencial e inclusivo",
 ];
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "PsychologicalService",
-  name: "Psicóloga Karla Figueroa | Consultoría DIH",
-  description:
-    "Atención psicológica presencial en San Andrés Cholula, Puebla, y terapia en línea para ansiedad, depresión, terapia de pareja, duelo, autoestima, adolescentes y familias.",
-  areaServed: ["Puebla", "San Andrés Cholula", "Cholula", "Angelópolis"],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "San Andrés Cholula",
-    addressRegion: "Puebla",
-    addressCountry: "MX",
-  },
-  telephone: "+52 222 203 1068",
-  url: "https://consultoria-dih.com",
-  founder: {
-    "@type": "Person",
-    name: "Karla Leticia Figueroa Hernández",
-    jobTitle: "Psicóloga",
-  },
-};
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground transition-colors">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <header className="border-b border-footer-blue/15 bg-background/95 px-5 py-4 sm:px-8">
-        <nav
-          className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4"
-          aria-label="Navegación principal"
-        >
-          <a href="#inicio" className="flex items-center gap-3">
-            <Image
-              src="/brand/consultoria-dih-logo.png"
-              alt="Consultoría DIH Psicóloga Karla Figueroa"
-              width={116}
-              height={60}
-              priority
-              className="h-12 w-auto md:h-16 lg:h-20"
-            />
-          </a>
-          <div className="flex items-center gap-3">
-            <Link
-              href="/sobre-mi"
-              className="inline-flex h-10 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-4 text-sm font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
-            >
-              Sobre mí
-            </Link>
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden h-10 items-center justify-center rounded-full bg-key-pink px-5 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-key-yellow hover:text-footer-dark-blue sm:inline-flex"
-            >
-              WhatsApp
-            </a>
-            <ToggleTheme />
-          </div>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <section id="inicio" className="px-5 py-14 sm:px-8 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
@@ -144,14 +33,12 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <AppointmentButton>Agendar cita</AppointmentButton>
-              <a
-                href={whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/servicios"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
               >
-                Enviar WhatsApp
-              </a>
+                Ver servicios
+              </Link>
             </div>
           </div>
 
@@ -202,9 +89,9 @@ export default function Home() {
           </div>
 
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((service) => (
+            {featuredServices.map((service) => (
               <article
-                key={service.title}
+                key={service.slug}
                 className="rounded-[8px] border border-footer-blue/10 bg-background p-5 shadow-sm"
               >
                 <div className={[
@@ -212,11 +99,17 @@ export default function Home() {
                   service.color,
                 ].join(" ")} />
                 <h3 className="text-xl font-semibold leading-tight text-foreground">
-                  {service.title}
+                  {service.shortTitle}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-muted">
                   {service.description}
                 </p>
+                <Link
+                  href={`/servicios/${service.slug}`}
+                  className="mt-5 inline-flex text-sm font-semibold text-footer-blue transition-colors hover:text-key-pink"
+                >
+                  Leer más
+                </Link>
               </article>
             ))}
           </div>
@@ -266,7 +159,7 @@ export default function Home() {
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
             <AppointmentButton variant="yellow">Agendar cita en línea</AppointmentButton>
             <a
-              href={whatsappLink}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-full border border-bg-creamy/35 px-6 text-base font-semibold text-bg-creamy transition-colors hover:bg-bg-creamy hover:text-footer-dark-blue"
