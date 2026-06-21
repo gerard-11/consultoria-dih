@@ -55,13 +55,13 @@ export function AppointmentButton({
 
       {isOpen ? (
         <div
-          className="fixed inset-0 z-50 flex items-end bg-footer-dark-blue/75 p-3 sm:items-center sm:p-6"
+          className="fixed inset-0 z-50 flex bg-footer-dark-blue/75 sm:items-center sm:p-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
         >
-          <div className="mx-auto flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-[8px] bg-background shadow-lg">
-            <div className="flex items-center justify-between gap-4 border-b border-footer-blue/15 bg-surface px-4 py-3 sm:px-5">
+          <div className="mx-auto flex h-[100dvh] w-full max-w-6xl flex-col overflow-hidden bg-background shadow-lg sm:h-[92vh] sm:rounded-[8px]">
+            <div className="flex shrink-0 items-center justify-between gap-4 border-b border-footer-blue/15 bg-surface px-4 py-3 sm:px-5">
               <div>
                 <h2 id={titleId} className="text-lg font-semibold text-foreground">
                   Agenda tu cita
@@ -80,16 +80,17 @@ export function AppointmentButton({
               </button>
             </div>
 
-            <div className="h-[72vh] min-h-[34rem] bg-surface">
+            <div className="min-h-0 flex-1 bg-surface">
               <iframe
                 title="Calendario para agendar cita con la Psicóloga Karla Figueroa"
                 src={calendarLink}
                 className="h-full w-full border-0"
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
 
-            <div className="flex flex-col gap-3 border-t border-footer-blue/15 bg-surface px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+            <div className="flex shrink-0 flex-col gap-3 border-t border-footer-blue/15 bg-surface px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
               <p className="text-sm text-muted">
                 Si el calendario no carga, abre la agenda directamente.
               </p>
