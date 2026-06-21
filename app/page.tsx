@@ -8,6 +8,7 @@ import { servicePages } from "./servicios/services";
 const featuredServices = servicePages;
 
 const trustItems = [
+  "Cédula profesional 6452371",
   "Más de 15 años de experiencia profesional",
   "Terapia presencial en San Andrés Cholula y atención en línea",
   "Enfoque humano, ético, confidencial e inclusivo",
@@ -49,7 +50,7 @@ export default function Home() {
               width={360}
               height={185}
               className="mx-auto h-auto w-full max-w-sm"
-              priority
+              sizes="(min-width: 1024px) 360px, 80vw"
             />
             <dl className="mt-8 grid gap-4 text-sm sm:grid-cols-2">
               <div className="rounded-[8px] bg-disculparse p-4 text-text-primary">

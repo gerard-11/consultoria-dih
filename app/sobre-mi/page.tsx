@@ -10,6 +10,7 @@ const credentials = [
     color: "bg-disculparse",
     items: [
       "Licenciada en Psicología por la UPAEP, titulada por promedio.",
+      "Cédula profesional: 6452371.",
       "Maestría en Pedagogía por la Universidad Popular Autónoma del Estado de Puebla.",
       "Formación en psicopedagogía.",
     ],

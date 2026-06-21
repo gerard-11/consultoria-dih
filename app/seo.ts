@@ -87,6 +87,11 @@ export const localBusinessJsonLd = {
     "@type": "Person",
     name: psychologistName,
     jobTitle: "Psicóloga",
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Cédula profesional",
+      identifier: "6452371",
+    },
   },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
