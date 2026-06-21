@@ -1,4 +1,5 @@
 import Image from "next/image";
+import logoImage from "@/public/brand/consultoria-dih-logo.png";
 import Link from "next/link";
 import { AppointmentButton } from "./components/AppointmentButton";
 import { SiteHeader } from "./components/SiteHeader";
@@ -45,7 +46,7 @@ export default function Home() {
 
           <aside className="rounded-[8px] border border-footer-blue/15 bg-surface p-6 shadow-sm">
             <Image
-              src="/brand/consultoria-dih-logo.png"
+              src={logoImage}
               alt="Logo de Consultoría DIH"
               width={360}
               height={185}

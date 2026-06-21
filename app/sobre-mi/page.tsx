@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import karlaPhoto from "@/public/brand/foto-karla.jpeg";
 import { AppointmentButton } from "../components/AppointmentButton";
 import { SiteHeader } from "../components/SiteHeader";
 import { buildMetadata, whatsappUrl } from "../seo";
@@ -87,7 +88,7 @@ export default function AboutPage() {
             <div className="absolute -bottom-4 -right-4 h-28 w-28 rounded-[8px] bg-humor" />
             <figure className="relative overflow-hidden rounded-[8px] border border-footer-blue/15 bg-surface p-2 shadow-sm">
               <Image
-                src="/brand/foto-karla.jpeg"
+                src={karlaPhoto}
                 alt="Psicóloga Karla Leticia Figueroa Hernández en Consultoría DIH"
                 width={690}
                 height={1117}

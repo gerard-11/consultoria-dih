@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import logoImage from "@/public/brand/consultoria-dih-logo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -38,7 +39,7 @@ export function SiteHeader() {
           onClick={() => setIsOpen(false)}
         >
           <Image
-            src="/brand/consultoria-dih-logo.png"
+            src={logoImage}
             alt="Consultoría DIH Psicóloga Karla Figueroa"
             width={116}
             height={60}
