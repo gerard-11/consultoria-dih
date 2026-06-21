@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 
-export const siteUrl = "https://consultoria-dih.com";
+function normalizeSiteUrl(url: string) {
+  return url.replace(/\/$/, "");
+}
+
+export const siteUrl = normalizeSiteUrl(
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://consultoria-dih.com",
+);
 export const siteName = "Consultoría DIH";
 export const psychologistName = "Karla Leticia Figueroa Hernández";
 export const whatsappUrl =
