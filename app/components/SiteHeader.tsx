@@ -8,9 +8,9 @@ import { useState } from "react";
 import { whatsappUrl } from "../seo";
 
 const headerButtonClass =
-  "inline-flex h-10 items-center justify-center rounded-2xl px-4 text-sm font-semibold text-purple transition-colors hover:bg-white/70";
+  "inline-flex h-10 items-center justify-center rounded-2xl px-4 text-sm font-semibold text-primary transition-colors hover:bg-white/70";
 const mobileHeaderButtonClass =
-  "flex min-h-12 items-center rounded-2xl px-4 text-base font-semibold text-purple transition-colors hover:bg-white/70";
+  "flex min-h-12 items-center rounded-2xl px-4 text-base font-semibold text-primary transition-colors hover:bg-white/70";
 
 const navItems = [
   { href: "/", label: "Inicio" },
@@ -32,7 +32,7 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-purple/10 bg-white/85 px-6 py-3 backdrop-blur-md sm:px-8">
+    <header className="sticky top-0 z-40 border-b border-primary/10 bg-white/85 px-6 py-3 backdrop-blur-md sm:px-8">
       <nav
         className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4"
         aria-label="Navegación principal"
@@ -52,7 +52,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 md:flex">
           {navItems.map((item) => {
             const active = isActivePath(pathname, item.href);
 
@@ -80,7 +80,7 @@ export function SiteHeader() {
           </a>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 md:hidden">
           <button
             type="button"
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
@@ -108,8 +108,8 @@ export function SiteHeader() {
       </nav>
 
       {isOpen ? (
-        <div className="mx-auto mt-3 w-full max-w-7xl lg:hidden">
-          <div className="rounded-3xl border border-purple/10 bg-white/95 p-2 shadow-sm backdrop-blur-md">
+        <div className="mx-auto mt-3 w-full max-w-7xl md:hidden">
+          <div className="rounded-3xl border border-primary/10 bg-white/95 p-2 shadow-sm backdrop-blur-md">
             <div className="grid gap-1">
               {navItems.map((item) => {
                 const active = isActivePath(pathname, item.href);

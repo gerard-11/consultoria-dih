@@ -6,9 +6,9 @@ const calendarLink = "https://calendar.app.google/ekuSLLvPNgWGGFhm8";
 
 const buttonClasses = {
   primary:
-    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-md shadow-purple/15 transition-opacity hover:opacity-90",
+    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-md shadow-primary/15 transition-opacity hover:opacity-90",
   yellow:
-    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-md shadow-purple/15 transition-opacity hover:opacity-90",
+    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-md shadow-primary/15 transition-opacity hover:opacity-90",
 };
 
 type AppointmentButtonProps = {
@@ -55,18 +55,18 @@ export function AppointmentButton({
 
       {isOpen ? (
         <div
-          className="fixed inset-0 z-50 flex bg-purple/75 sm:items-center sm:p-6"
+          className="fixed inset-0 z-50 flex bg-primary/75 sm:items-center sm:p-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
         >
           <div className="mx-auto flex h-[100dvh] w-full max-w-6xl flex-col overflow-hidden bg-white shadow-lg sm:h-[92vh] sm:rounded-3xl">
-            <div className="flex shrink-0 items-center justify-between gap-4 border-b border-purple/10 bg-white px-4 py-3 sm:px-5">
+            <div className="flex shrink-0 items-center justify-between gap-4 border-b border-primary/10 bg-white px-4 py-3 sm:px-5">
               <div>
-                <h2 id={titleId} className="text-lg font-semibold text-purple">
+                <h2 id={titleId} className="text-lg font-semibold text-primary">
                   Agenda tu cita
                 </h2>
-                <p className="mt-1 text-sm text-purple/70">
+                <p className="mt-1 text-sm text-primary/70">
                   Selecciona un horario disponible en el calendario.
                 </p>
               </div>
@@ -90,8 +90,8 @@ export function AppointmentButton({
               />
             </div>
 
-            <div className="flex shrink-0 flex-col gap-3 border-t border-purple/10 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
-              <p className="text-sm text-purple/70">
+            <div className="flex shrink-0 flex-col gap-3 border-t border-primary/10 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+              <p className="text-sm text-primary/70">
                 Si el calendario no carga, abre la agenda directamente.
               </p>
               <a
