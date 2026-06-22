@@ -1,12 +1,10 @@
-import Image from "next/image";
-import logoImage from "@/public/brand/consultoria-dih-logo.png";
 import Link from "next/link";
 import { AppointmentButton } from "./components/AppointmentButton";
 import { SiteHeader } from "./components/SiteHeader";
 import { whatsappUrl } from "./seo";
 import { servicePages } from "./servicios/services";
 
-const featuredServices = servicePages;
+const featuredServices = servicePages.slice(0, 3);
 
 const trustItems = [
   "Cédula profesional 6452371",
@@ -15,100 +13,100 @@ const trustItems = [
   "Enfoque humano, ético, confidencial e inclusivo",
 ];
 
+const serviceAccentClasses = ["bg-purple", "bg-teal", "bg-coral"];
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground transition-colors">
+    <main className="min-h-screen bg-white text-purple">
       <SiteHeader />
 
-      <section id="inicio" className="px-5 py-14 sm:px-8 lg:py-20">
-        <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <section id="inicio" className="px-6 py-20 sm:px-8 lg:py-28">
+        <div className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-foreground sm:text-6xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-teal">
+              Consultoría DIH
+            </p>
+            <h1 className="text-brand-gradient mt-4 max-w-5xl text-4xl font-semibold leading-tight sm:text-6xl lg:text-7xl">
               Terapia psicológica para recuperar tu bienestar emocional y mental
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
-              Soy Karla Leticia Figueroa Hernández, psicóloga con más de 15 años
-              de experiencia acompañando adolescentes, adultos, parejas y
-              familias en procesos de ansiedad, depresión, duelo, conflictos de
-              pareja o familiares, autoestima, sexualidad y habilidades
-              emocionales.
+            <p className="mt-6 max-w-2xl text-2xl font-semibold leading-9 text-purple">
+              Un espacio profesional para comprender lo que sientes, ordenar lo que estás viviendo y avanzar con herramientas claras.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-purple/70">
+              Soy Karla Leticia Figueroa Hernández, psicóloga con más de 15 años de experiencia acompañando adolescentes, adultos, parejas y familias en procesos de ansiedad, depresión, duelo, autoestima y habilidades emocionales.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <AppointmentButton>Agendar cita</AppointmentButton>
               <Link
                 href="/servicios"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-purple/15 bg-white px-6 text-base font-semibold text-purple shadow-sm transition-colors hover:bg-white"
               >
                 Ver servicios
               </Link>
             </div>
           </div>
 
-          <aside className="rounded-[8px] border border-footer-blue/15 bg-surface p-6 shadow-sm">
-            <Image
-              src={logoImage}
-              alt="Logo de Consultoría DIH"
-              width={360}
-              height={185}
-              className="mx-auto h-auto w-full max-w-sm"
-              sizes="(min-width: 1024px) 360px, 80vw"
-            />
-            <dl className="mt-8 grid gap-4 text-sm sm:grid-cols-2">
-              <div className="rounded-[8px] bg-disculparse p-4 text-text-primary">
-                <dt className="font-semibold">Modalidad</dt>
-                <dd className="mt-1">Presencial y en línea</dd>
-              </div>
-              <div className="rounded-[8px] bg-declaracion p-4 text-text-primary">
-                <dt className="font-semibold">Ubicación</dt>
-                <dd className="mt-1">San Andrés Cholula, Puebla</dd>
-              </div>
-              <div className="rounded-[8px] bg-humor p-4 text-text-primary">
-                <dt className="font-semibold">Experiencia</dt>
-                <dd className="mt-1">Más de 15 años</dd>
-              </div>
-              <div className="rounded-[8px] bg-tranquilo p-4 text-text-primary">
-                <dt className="font-semibold">Agenda</dt>
-                <dd className="mt-1">WhatsApp 222 203 1068</dd>
-              </div>
-            </dl>
+          <aside className="rounded-3xl border border-purple/10 bg-white/80 p-6 shadow-md shadow-purple/10">
+            <div className="rounded-3xl bg-blush-light p-6">
+              <p className="text-sm font-semibold uppercase tracking-wide text-teal">
+                Atención presencial y en línea
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold leading-tight text-purple">
+                Acompañamiento humano, confidencial y ético
+              </h2>
+              <dl className="mt-8 grid gap-4 text-sm sm:grid-cols-2">
+                {trustItems.map((item, index) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-purple/15 bg-white/80 p-4 text-purple shadow-md shadow-purple/10"
+                  >
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-purple/70">
+                      {index === 0 ? "Confianza" : "Proceso"}
+                    </dt>
+                    <dd className="mt-2 font-semibold leading-6">{item}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </aside>
         </div>
       </section>
 
-      <section className="bg-surface px-5 py-14 sm:px-8" aria-labelledby="servicios-title">
+      <section className=" px-6 py-20 sm:px-8" aria-labelledby="servicios-title">
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-footer-blue">
+            <p className="text-sm font-semibold uppercase tracking-wide text-teal">
               Servicios psicológicos
             </p>
-            <h2 id="servicios-title" className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
-              Atención terapéutica para necesidades concretas
+            <h2 id="servicios-title" className="mt-3 text-3xl font-semibold leading-tight text-purple sm:text-4xl">
+              Tres rutas de acompañamiento psicológico
             </h2>
-            <p className="mt-4 text-lg leading-8 text-muted">
-              Cada servicio está pensado para que encuentres ayuda profesional
-              según lo que estás viviendo y puedas agendar fácilmente.
+            <p className="mt-4 text-lg leading-8 text-purple/70">
+              Servicios presentados con estructura clara para elegir el tipo de apoyo que necesitas y agendar sin fricción.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {featuredServices.map((service) => (
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {featuredServices.map((service, index) => (
               <article
                 key={service.slug}
-                className="rounded-[8px] border border-footer-blue/10 bg-background p-5 shadow-sm"
+                className="rounded-3xl border border-purple/10 bg-surface p-6 shadow-md shadow-purple/10"
               >
-                <div className={[
-                  "mb-5 h-2 w-16 rounded-full",
-                  service.color,
-                ].join(" ")} />
-                <h3 className="text-xl font-semibold leading-tight text-foreground">
+                <div
+                  className={[
+                    "mb-6 h-2 w-16 rounded-full",
+                    serviceAccentClasses[index] ?? "bg-aqua",
+                  ].join(" ")}
+                />
+                <h3 className="text-xl font-semibold leading-tight text-purple">
                   {service.shortTitle}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-muted">
+                <p className="mt-3 text-sm leading-6 text-purple/70">
                   {service.description}
                 </p>
                 <Link
                   href={`/servicios/${service.slug}`}
-                  className="mt-5 inline-flex text-sm font-semibold text-footer-blue transition-colors hover:text-key-pink"
+                  className="mt-6 inline-flex h-10 items-center justify-center rounded-full bg-lavender-light px-4 text-sm font-semibold text-purple transition-colors hover:bg-blush-light"
                 >
                   Leer más
                 </Link>
@@ -118,44 +116,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 py-14 sm:px-8" aria-labelledby="perfil-title">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-          <div className="rounded-[8px] bg-footer-dark-blue p-6 text-bg-creamy">
-            <p className="text-sm font-semibold uppercase tracking-wide text-key-yellow">
-              Formación y experiencia
-            </p>
-            <h2 id="perfil-title" className="mt-3 text-3xl font-semibold leading-tight">
-              Psicóloga Karla Figueroa
-            </h2>
-            <p className="mt-4 leading-7 text-bg-creamy/85">
-              Licenciada en Psicología por la UPAEP, con Maestría en Pedagogía,
-              formación en psicopedagogía, terapia emocional sistémica, terapia
-              de pareja, terapia breve, adicciones y método Gottman.
-            </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {trustItems.map((item) => (
-              <div key={item} className="rounded-[8px] border border-footer-blue/15 bg-surface p-5">
-                <p className="text-base font-semibold leading-7 text-foreground">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-footer-dark-blue px-5 py-14 text-bg-creamy sm:px-8" aria-labelledby="agenda-title">
+      <section className="bg-lavender-light px-6 py-20 text-purple sm:px-8" aria-labelledby="agenda-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-key-yellow">
+            <p className="text-sm font-semibold uppercase tracking-wide text-teal">
               Terapia presencial y en línea
             </p>
-            <h2 id="agenda-title" className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+            <h2 id="agenda-title" className="mt-3 text-3xl font-semibold leading-tight text-purple sm:text-4xl">
               Agenda terapia en San Andrés Cholula, Puebla, o en línea
             </h2>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-bg-creamy/85">
-              Atención cerca de Angelópolis y sesiones en línea para México y el
-              extranjero. Si buscas psicóloga en Puebla o Cholula, puedes
-              escribir por WhatsApp o reservar directamente en el calendario.
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-purple/75">
+              Atención cerca de Angelópolis y sesiones en línea para México y el extranjero. Puedes escribir por WhatsApp o reservar directamente en el calendario.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
@@ -164,7 +135,7 @@ export default function Home() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-bg-creamy/35 px-6 text-base font-semibold text-bg-creamy transition-colors hover:bg-bg-creamy hover:text-footer-dark-blue"
+              className="brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
             >
               WhatsApp 222 203 1068
             </a>

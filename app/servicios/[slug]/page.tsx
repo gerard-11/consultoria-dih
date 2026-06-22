@@ -63,7 +63,7 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
   };
 
   return (
-    <main className="min-h-screen bg-background text-foreground transition-colors">
+    <main className="min-h-screen bg-white text-purple transition-colors">
       <Script
         id={`service-json-ld-${service.slug}`}
         type="application/ld+json"
@@ -75,13 +75,13 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
       <section className="px-5 py-14 sm:px-8 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-footer-blue">
+            <p className="text-sm font-semibold uppercase tracking-wide text-purple">
               Servicio psicológico
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight sm:text-6xl">
               {service.title}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-purple/70">
               {service.intro}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -90,21 +90,21 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
+                className="brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
               >
                 Enviar WhatsApp
               </a>
             </div>
           </div>
 
-          <aside className="rounded-[8px] border border-footer-blue/15 bg-surface p-6 shadow-sm">
+          <aside className="rounded-[8px] border border-neutral-200 bg-white p-6 shadow-sm">
             <div className={["mb-6 h-2 w-20 rounded-full", service.color].join(" ")} />
             <h2 className="text-2xl font-semibold leading-tight">
               Cómo puede ayudarte
             </h2>
             <ul className="mt-5 grid gap-4">
               {service.highlights.map((highlight) => (
-                <li key={highlight} className="rounded-[8px] bg-background p-4 text-sm font-semibold leading-6 text-foreground">
+                <li key={highlight} className="rounded-[8px] bg-white p-4 text-sm font-semibold leading-6 text-purple">
                   {highlight}
                 </li>
               ))}
@@ -113,7 +113,7 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
         </div>
       </section>
 
-      <section className="bg-surface px-5 py-14 sm:px-8">
+      <section className="bg-neutral-warm px-5 py-14 sm:px-8">
         <div className="mx-auto w-full max-w-7xl">
           <h2 className="text-3xl font-semibold leading-tight">
             Otros servicios relacionados
@@ -126,10 +126,10 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
                 <Link
                   key={item.slug}
                   href={`/servicios/${item.slug}`}
-                  className="rounded-[8px] border border-footer-blue/15 bg-background p-5 shadow-sm transition-colors hover:border-footer-blue"
+                  className="rounded-[8px] border border-neutral-200 bg-white p-5 shadow-sm transition-colors hover:border-neutral-200"
                 >
                   <span className="text-lg font-semibold">{item.shortTitle}</span>
-                  <span className="mt-2 block text-sm leading-6 text-muted">
+                  <span className="mt-2 block text-sm leading-6 text-purple/70">
                     {item.description}
                   </span>
                 </Link>

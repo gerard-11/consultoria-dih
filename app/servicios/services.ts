@@ -28,7 +28,7 @@ export const servicePages: ServicePage[] = [
       "psicóloga ansiedad Cholula",
       "tratamiento ansiedad San Andrés Cholula",
     ],
-    color: "bg-humor",
+    color: "bg-white",
   },
   {
     slug: "depresion",
@@ -48,7 +48,7 @@ export const servicePages: ServicePage[] = [
       "psicóloga depresión Cholula",
       "ayuda psicológica depresión Puebla",
     ],
-    color: "bg-tranquilo",
+    color: "bg-white",
   },
   {
     slug: "terapia-de-pareja",
@@ -68,7 +68,7 @@ export const servicePages: ServicePage[] = [
       "terapia de pareja Cholula",
       "psicóloga de pareja Puebla",
     ],
-    color: "bg-declaracion",
+    color: "bg-white",
   },
   {
     slug: "adolescentes",
@@ -88,7 +88,7 @@ export const servicePages: ServicePage[] = [
       "terapia adolescentes Cholula",
       "psicóloga para adolescentes San Andrés Cholula",
     ],
-    color: "bg-turnos",
+    color: "bg-white",
   },
   {
     slug: "terapia-en-linea",
@@ -108,7 +108,7 @@ export const servicePages: ServicePage[] = [
       "psicóloga en línea Puebla",
       "terapia psicológica online",
     ],
-    color: "bg-disculparse",
+    color: "bg-white",
   },
   {
     slug: "duelo",
@@ -128,7 +128,7 @@ export const servicePages: ServicePage[] = [
       "psicóloga duelo Cholula",
       "terapia separación Puebla",
     ],
-    color: "bg-dejarlo",
+    color: "bg-white",
   },
 ];
 

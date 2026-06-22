@@ -8,7 +8,7 @@ import { buildMetadata, whatsappUrl } from "../seo";
 const credentials = [
   {
     category: "Base profesional",
-    color: "bg-disculparse",
+    color: "bg-white",
     items: [
       "Licenciada en Psicología por la UPAEP, titulada por promedio.",
       "Cédula profesional: 6452371.",
@@ -18,7 +18,7 @@ const credentials = [
   },
   {
     category: "Psicoterapia y pareja",
-    color: "bg-declaracion",
+    color: "bg-white",
     items: [
       "Diplomado Internacional en Psicoterapia de Pareja, Universidad Autónoma de Tlaxcala / feelink, 120 horas.",
       "Diplomado en Terapia de Pareja Sexual y Familiar.",
@@ -27,7 +27,7 @@ const credentials = [
   },
   {
     category: "Enfoques clínicos",
-    color: "bg-humor",
+    color: "bg-white",
     items: [
       "Diplomado en Terapia Emocional Sistémica, feelink, 120 horas.",
       "Diplomado en Modelos Psicológicos de Terapia Breve.",
@@ -36,7 +36,7 @@ const credentials = [
   },
   {
     category: "Capacitación y desarrollo humano",
-    color: "bg-tranquilo",
+    color: "bg-white",
     items: [
       "Certificación en impartición de cursos de formación del capital humano, estándar CONOCER EC0217.",
     ],
@@ -78,15 +78,15 @@ export const metadata: Metadata = buildMetadata({
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground transition-colors">
+    <main className="min-h-screen bg-white text-purple transition-colors">
       <SiteHeader />
 
       <section className="px-5 py-14 sm:px-8 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="relative mx-auto w-full max-w-sm lg:mx-0">
-            <div className="absolute -inset-3 rounded-[8px] bg-key-yellow" />
-            <div className="absolute -bottom-4 -right-4 h-28 w-28 rounded-[8px] bg-humor" />
-            <figure className="relative overflow-hidden rounded-[8px] border border-footer-blue/15 bg-surface p-2 shadow-sm">
+            <div className="brand-gradient absolute -inset-3 rounded-3xl" />
+            <div className="absolute -bottom-4 -right-4 h-28 w-28 rounded-3xl bg-coral/70" />
+            <figure className="relative overflow-hidden rounded-3xl border border-purple/10 bg-white p-2 shadow-md shadow-purple/10">
               <Image
                 src={karlaPhoto}
                 alt="Psicóloga Karla Leticia Figueroa Hernández en Consultoría DIH"
@@ -99,19 +99,19 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-footer-blue">
+            <p className="text-sm font-semibold uppercase tracking-wide text-purple">
               Sobre mí
             </p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-foreground sm:text-6xl">
+            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-purple sm:text-6xl">
               Psicóloga Karla Leticia Figueroa Hernández
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-purple/70">
               Soy psicóloga con más de 15 años de experiencia acompañando
               adolescentes, adultos, parejas y familias en procesos de ansiedad,
               depresión, duelo, conflictos de pareja o familiares, autoestima,
               sexualidad, adicciones y habilidades emocionales.
             </p>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-muted">
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-purple/70">
               En Consultoría DIH brindo un espacio profesional, humano,
               confidencial, ético e inclusivo para comprender lo que estás
               viviendo y desarrollar herramientas prácticas para recuperar tu
@@ -123,7 +123,7 @@ export default function AboutPage() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-key-pink hover:text-background"
+                className="brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
               >
                 Enviar WhatsApp
               </a>
@@ -132,16 +132,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-surface px-5 py-14 sm:px-8" aria-labelledby="curriculum-title">
+      <section className="bg-neutral-warm px-5 py-14 sm:px-8" aria-labelledby="curriculum-title">
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-footer-blue">
+            <p className="text-sm font-semibold uppercase tracking-wide text-purple">
               Currículum y certificaciones
             </p>
             <h2 id="curriculum-title" className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
               Formación profesional y actualización continua
             </h2>
-            <p className="mt-4 text-lg leading-8 text-muted">
+            <p className="mt-4 text-lg leading-8 text-purple/70">
               Su formación integra psicología, pedagogía, terapia de pareja,
               terapia sistémica, terapia breve, adicciones y desarrollo humano.
             </p>
@@ -152,11 +152,11 @@ export default function AboutPage() {
               {credentials.map((group) => (
                 <article
                   key={group.category}
-                  className="rounded-[8px] border border-footer-blue/15 bg-background p-4 shadow-sm"
+                  className="rounded-[8px] border border-neutral-200 bg-white p-4 shadow-sm"
                 >
                   <div
                     className={[
-                      "mb-4 inline-flex rounded-full px-3 py-1 text-sm font-semibold text-text-primary",
+                      "mb-4 inline-flex rounded-full px-3 py-1 text-sm font-semibold text-purple",
                       group.color,
                     ].join(" ")}
                   >
@@ -164,7 +164,7 @@ export default function AboutPage() {
                   </div>
                   <ul className="grid gap-3">
                     {group.items.map((credential) => (
-                      <li key={credential} className="text-base leading-7 text-foreground">
+                      <li key={credential} className="text-base leading-7 text-purple">
                         {credential}
                       </li>
                     ))}
@@ -176,26 +176,26 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-5 py-14 sm:px-8" aria-labelledby="enfoque-title">
+      <section className="px-6 py-20 sm:px-8" aria-labelledby="enfoque-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-2">
-          <div className="rounded-[8px] bg-footer-dark-blue p-6 text-bg-creamy">
-            <p className="text-sm font-semibold uppercase tracking-wide text-key-yellow">
+          <div className="rounded-3xl border border-purple/10 bg-blush-light p-6 text-purple shadow-md shadow-purple/10 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-wide text-teal">
               Enfoque terapéutico
             </p>
-            <h2 id="enfoque-title" className="mt-3 text-3xl font-semibold leading-tight">
+            <h2 id="enfoque-title" className="mt-3 text-3xl font-semibold leading-tight text-purple">
               Atención basada en evidencia y trato humano
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {approaches.map((approach) => (
-                <p key={approach} className="rounded-[8px] bg-bg-creamy/10 p-3 text-sm font-semibold text-bg-creamy">
+                <p key={approach} className="rounded-2xl bg-surface p-3 text-sm font-semibold leading-6 text-purple shadow-sm">
                   {approach}
                 </p>
               ))}
             </div>
           </div>
 
-          <div className="rounded-[8px] border border-footer-blue/15 bg-surface p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-wide text-footer-blue">
+          <div className="rounded-3xl border border-purple/10 bg-surface p-6 shadow-md shadow-purple/10 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-wide text-purple">
               Experiencia clínica
             </p>
             <h2 className="mt-3 text-3xl font-semibold leading-tight">
@@ -203,7 +203,7 @@ export default function AboutPage() {
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {experience.map((item) => (
-                <p key={item} className="rounded-[8px] bg-declaracion p-3 text-sm font-semibold text-text-primary">
+                <p key={item} className="rounded-2xl bg-lavender-light p-3 text-sm font-semibold leading-6 text-purple">
                   {item}
                 </p>
               ))}
@@ -212,16 +212,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-footer-dark-blue px-5 py-14 text-bg-creamy sm:px-8" aria-labelledby="contacto-title">
+      <section className="bg-lavender-light px-6 py-20 text-purple sm:px-8" aria-labelledby="contacto-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-key-yellow">
+            <p className="text-sm font-semibold uppercase tracking-wide text-teal">
               Consultoría DIH
             </p>
-            <h2 id="contacto-title" className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
+            <h2 id="contacto-title" className="mt-3 text-3xl font-semibold leading-tight text-purple sm:text-4xl">
               Terapia presencial en San Andrés Cholula y atención en línea
             </h2>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-bg-creamy/85">
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-purple/75">
               Atención cerca de Angelópolis, Puebla, y sesiones en línea para
               México y el extranjero. Si estás buscando psicóloga en Puebla o
               Cholula, puedes agendar directamente o escribir por WhatsApp.
@@ -233,7 +233,7 @@ export default function AboutPage() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-bg-creamy/35 px-6 text-base font-semibold text-bg-creamy transition-colors hover:bg-bg-creamy hover:text-footer-dark-blue"
+              className="brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
             >
               WhatsApp 222 203 1068
             </a>

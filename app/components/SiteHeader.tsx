@@ -7,6 +7,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { whatsappUrl } from "../seo";
 
+const headerButtonClass =
+  "inline-flex h-10 items-center justify-center rounded-2xl px-4 text-sm font-semibold text-purple transition-colors hover:bg-white/70";
+const mobileHeaderButtonClass =
+  "flex min-h-12 items-center rounded-2xl px-4 text-base font-semibold text-purple transition-colors hover:bg-white/70";
+
 const navItems = [
   { href: "/", label: "Inicio" },
   { href: "/servicios", label: "Servicios" },
@@ -27,7 +32,7 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-footer-blue/15 bg-background/95 px-5 py-3 backdrop-blur sm:px-8">
+    <header className="sticky top-0 z-40 border-b border-purple/10 bg-white/85 px-6 py-3 backdrop-blur-md sm:px-8">
       <nav
         className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4"
         aria-label="Navegación principal"
@@ -57,10 +62,8 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={[
-                  "inline-flex h-10 items-center justify-center rounded-[8px] px-4 text-sm font-semibold transition-colors",
-                  active
-                    ? "bg-footer-blue text-background"
-                    : "text-muted hover:bg-surface hover:text-footer-blue",
+                  headerButtonClass,
+                  active ? "bg-white/70" : "",
                 ].join(" ")}
               >
                 {item.label}
@@ -71,9 +74,9 @@ export function SiteHeader() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-10 items-center justify-center rounded-[8px] bg-key-pink px-4 text-sm font-semibold text-background shadow-sm transition-colors hover:bg-key-yellow hover:text-footer-dark-blue"
+            className="brand-gradient inline-flex h-10 items-center justify-center rounded-2xl px-4 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
           >
-            WhatsApp
+            Contacto
           </a>
         </div>
 
@@ -83,13 +86,22 @@ export function SiteHeader() {
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isOpen}
             onClick={() => setIsOpen((current) => !current)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-[8px] border border-footer-blue/25 bg-surface text-foreground shadow-sm transition-colors hover:border-footer-blue"
+            className="brand-gradient inline-flex h-11 w-11 items-center justify-center rounded-2xl text-white shadow-sm transition-opacity hover:opacity-90"
           >
             <span className="sr-only">{isOpen ? "Cerrar menú" : "Abrir menú"}</span>
             <span aria-hidden="true" className="flex flex-col gap-1.5">
-              <span className={["h-0.5 w-5 rounded-full bg-current transition-transform", isOpen ? "translate-y-2 rotate-45" : ""].join(" ")} />
-              <span className={["h-0.5 w-5 rounded-full bg-current transition-opacity", isOpen ? "opacity-0" : "opacity-100"].join(" ")} />
-              <span className={["h-0.5 w-5 rounded-full bg-current transition-transform", isOpen ? "-translate-y-2 -rotate-45" : ""].join(" ")} />
+              <span className={[
+                "h-0.5 w-5 rounded-full bg-current transition-transform",
+                isOpen ? "translate-y-2 rotate-45" : "",
+              ].join(" ")} />
+              <span className={[
+                "h-0.5 w-5 rounded-full bg-current transition-opacity",
+                isOpen ? "opacity-0" : "opacity-100",
+              ].join(" ")} />
+              <span className={[
+                "h-0.5 w-5 rounded-full bg-current transition-transform",
+                isOpen ? "-translate-y-2 -rotate-45" : "",
+              ].join(" ")} />
             </span>
           </button>
         </div>
@@ -97,7 +109,7 @@ export function SiteHeader() {
 
       {isOpen ? (
         <div className="mx-auto mt-3 w-full max-w-7xl lg:hidden">
-          <div className="rounded-[8px] border border-footer-blue/15 bg-surface p-2 shadow-sm">
+          <div className="rounded-3xl border border-purple/10 bg-white/95 p-2 shadow-sm backdrop-blur-md">
             <div className="grid gap-1">
               {navItems.map((item) => {
                 const active = isActivePath(pathname, item.href);
@@ -109,10 +121,8 @@ export function SiteHeader() {
                     aria-current={active ? "page" : undefined}
                     onClick={() => setIsOpen(false)}
                     className={[
-                      "flex min-h-11 items-center rounded-[8px] px-4 text-base font-semibold transition-colors",
-                      active
-                        ? "bg-footer-blue text-background"
-                        : "text-foreground hover:bg-background hover:text-footer-blue",
+                      mobileHeaderButtonClass,
+                      active ? "bg-white/70" : "",
                     ].join(" ")}
                   >
                     {item.label}
@@ -124,9 +134,9 @@ export function SiteHeader() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="mt-1 flex min-h-11 items-center justify-center rounded-[8px] bg-key-pink px-4 text-base font-semibold text-background transition-colors hover:bg-key-yellow hover:text-footer-dark-blue"
+                className="brand-gradient mt-1 flex min-h-12 items-center justify-center rounded-2xl px-4 text-base font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
               >
-                WhatsApp
+                Contacto
               </a>
             </div>
           </div>
