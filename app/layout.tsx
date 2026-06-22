@@ -7,7 +7,9 @@ import {
   organizationJsonLd,
   siteUrl,
 } from "./seo";
+import { ThemeProvider } from "./theme/ThemeProvider";
 import "./globals.css";
+import "./theme/theme.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,7 +70,9 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col">
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

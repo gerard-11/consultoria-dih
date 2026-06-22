@@ -3,6 +3,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { AppointmentButton } from "../../components/AppointmentButton";
+import { SiteFooter } from "../../components/SiteFooter";
 import { SiteHeader } from "../../components/SiteHeader";
 import { buildMetadata, siteName, siteUrl, whatsappUrl } from "../../seo";
 import { getServicePage, servicePages } from "../services";
@@ -63,7 +64,7 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
   };
 
   return (
-    <main className="min-h-screen bg-white text-purple transition-colors">
+    <main className="min-h-screen bg-white text-primary transition-colors">
       <Script
         id={`service-json-ld-${service.slug}`}
         type="application/ld+json"
@@ -75,13 +76,13 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
       <section className="px-5 py-14 sm:px-8 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-purple">
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
               Servicio psicológico
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight sm:text-6xl">
               {service.title}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-purple/70">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-primary/70">
               {service.intro}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -97,14 +98,14 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
             </div>
           </div>
 
-          <aside className="rounded-[8px] border border-neutral-200 bg-white p-6 shadow-sm">
+          <aside className="rounded-[8px] border p-6 shadow-sm" style={{ borderColor: 'var(--color-sidebar-border)', backgroundColor: 'var(--color-sidebar-bg)' }}>
             <div className={["mb-6 h-2 w-20 rounded-full", service.color].join(" ")} />
             <h2 className="text-2xl font-semibold leading-tight">
               Cómo puede ayudarte
             </h2>
             <ul className="mt-5 grid gap-4">
               {service.highlights.map((highlight) => (
-                <li key={highlight} className="rounded-[8px] bg-white p-4 text-sm font-semibold leading-6 text-purple">
+                <li key={highlight} className="rounded-[8px] bg-white p-4 text-sm font-semibold leading-6 text-primary">
                   {highlight}
                 </li>
               ))}
@@ -113,9 +114,9 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
         </div>
       </section>
 
-      <section className="bg-neutral-warm px-5 py-14 sm:px-8">
+      <section className="px-5 py-14 sm:px-8" style={{ backgroundColor: 'var(--color-primary-light)' }}>
         <div className="mx-auto w-full max-w-7xl">
-          <h2 className="text-3xl font-semibold leading-tight">
+          <h2 className="text-3xl font-semibold leading-tight" style={{ color: 'var(--color-primary)' }}>
             Otros servicios relacionados
           </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
@@ -126,10 +127,11 @@ export default async function ServicePage({ params }: ServiceRouteProps) {
                 <Link
                   key={item.slug}
                   href={`/servicios/${item.slug}`}
-                  className="rounded-[8px] border border-neutral-200 bg-white p-5 shadow-sm transition-colors hover:border-neutral-200"
+                  className="rounded-[8px] border p-5 shadow-sm transition-colors"
+                  style={{ borderColor: 'var(--color-border-muted)', backgroundColor: 'var(--color-background)' }}
                 >
-                  <span className="text-lg font-semibold">{item.shortTitle}</span>
-                  <span className="mt-2 block text-sm leading-6 text-purple/70">
+                  <span className="text-lg font-semibold" style={{ color: 'var(--color-primary)' }}>{item.shortTitle}</span>
+                  <span className="mt-2 block text-sm leading-6" style={{ color: 'var(--color-primary)70' }}>
                     {item.description}
                   </span>
                 </Link>
