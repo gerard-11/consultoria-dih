@@ -6,9 +6,9 @@ const calendarLink = "https://calendar.app.google/ekuSLLvPNgWGGFhm8";
 
 const buttonClasses = {
   primary:
-    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-md shadow-primary/15 transition-opacity hover:opacity-90",
+    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-sm sm:text-base font-semibold text-white shadow-md shadow-primary/15 transition-opacity hover:opacity-90",
   yellow:
-    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-md shadow-primary/15 transition-opacity hover:opacity-90",
+    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-sm sm:text-base font-semibold text-white shadow-md shadow-primary/15 transition-opacity hover:opacity-90",
 };
 
 type AppointmentButtonProps = {

@@ -24,7 +24,7 @@ export default function Home() {
       <SiteHeader />
 
       <section id="inicio" className="px-6 py-12 sm:px-8 lg:py-20">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-[1.05fr_0.95fr] md:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-secondary">
               Consultoría DIH
@@ -42,7 +42,7 @@ export default function Home() {
               <AppointmentButton>Agendar cita</AppointmentButton>
               <Link
                 href="/servicios"
-                className="inline-flex h-12 items-center justify-center rounded-full border border-primary/15 bg-white px-6 text-base font-semibold text-primary shadow-sm transition-colors hover:bg-white"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-primary/15 bg-white px-6 text-sm sm:text-base font-semibold text-primary shadow-sm transition-colors hover:bg-white"
               >
                 Ver servicios
               </Link>
@@ -56,7 +56,7 @@ export default function Home() {
                 alt="Consultoría DIH Logo"
                 width={200}
                 height={140}
-                className="h-auto w-auto max-w-xs"
+                className="h-auto w-auto max-w-48 sm:max-w-xs"
               />
             </div>
 
@@ -64,19 +64,19 @@ export default function Home() {
               <p className="text-sm font-semibold uppercase tracking-wide text-secondary">
                 Atención presencial y en línea
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight text-primary">
+              <h2 className="mt-3 text-base sm:text-lg md:text-xl lg:text-2xl font-semibold leading-tight text-primary">
                 Acompañamiento humano, confidencial y ético
               </h2>
-              <dl className="mt-6 grid gap-3 text-sm sm:grid-cols-2">
+              <dl className="mt-6 grid gap-4 text-sm md:grid-cols-2">
                 {trustItems.map((item, index) => (
                   <div
                     key={item}
-                    className="rounded-2xl border border-primary/15 bg-white/80 p-4 text-primary shadow-md shadow-primary/10"
+                    className="border border-primary/15 p-4 py-3 text-primary"
                   >
                     <dt className="text-xs font-semibold uppercase tracking-wide text-primary/70">
                       {index === 0 ? "Confianza" : "Proceso"}
                     </dt>
-                    <dd className="mt-2 font-semibold leading-6">{item}</dd>
+                    <dd className="mt-2 leading-6">{item}</dd>
                   </div>
                 ))}
               </dl>
@@ -91,7 +91,7 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wide text-secondary">
               Servicios psicológicos
             </p>
-            <h2 id="servicios-title" className="mt-3 text-3xl font-semibold leading-tight text-primary sm:text-4xl">
+            <h2 id="servicios-title" className="mt-3 text-base sm:text-lg md:text-xl lg:text-3xl font-semibold leading-tight text-primary">
               Tres rutas de acompañamiento psicológico
             </h2>
             <p className="mt-4 text-lg leading-8 text-primary/70">
@@ -117,12 +117,6 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-6 text-primary/70">
                   {service.description}
                 </p>
-                <Link
-                  href={`/servicios/${service.slug}`}
-                  className="mt-6 inline-flex h-10 items-center justify-center rounded-full bg-primary-light px-4 text-sm font-semibold text-primary transition-colors hover:bg-surface-light"
-                >
-                  Leer más
-                </Link>
               </article>
             ))}
           </div>
@@ -130,15 +124,15 @@ export default function Home() {
       </section>
 
       <section className="bg-primary-light px-6 py-20 text-primary sm:px-8" aria-labelledby="agenda-title">
-        <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-secondary">
               Terapia presencial y en línea
             </p>
-            <h2 id="agenda-title" className="mt-3 text-3xl font-semibold leading-tight text-primary sm:text-4xl">
+            <h2 id="agenda-title" className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-primary">
               Agenda terapia en San Andrés Cholula, Puebla, o en línea
             </h2>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-primary/75">
+            <p className="mt-4 max-w-3xl text-base sm:text-lg leading-8 text-primary/75">
               Atención cerca de Angelópolis y sesiones en línea para México y el extranjero. Puedes escribir por WhatsApp o reservar directamente en el calendario.
             </p>
           </div>
@@ -148,7 +142,7 @@ export default function Home() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
+              className="brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-sm sm:text-base font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
             >
               WhatsApp 222 203 1068
             </a>
