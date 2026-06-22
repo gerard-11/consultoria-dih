@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { ThemeProvider } from "./components/ThemeProvider";
 import {
   buildMetadata,
   localBusinessJsonLd,
@@ -19,18 +18,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const themeScript = [
-  "(function () {",
-  "  try {",
-  "    var storedTheme = window.localStorage.getItem(\"consultoria-dih-theme\");",
-  "    var systemTheme = window.matchMedia(\"(prefers-color-scheme: dark)\").matches ? \"dark\" : \"light\";",
-  "    var theme = storedTheme === \"light\" || storedTheme === \"dark\" ? storedTheme : systemTheme;",
-  "    document.documentElement.dataset.theme = theme;",
-  "    document.documentElement.style.colorScheme = theme;",
-  "  } catch (_) {}",
-  "})();",
-].join("\n");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -69,7 +56,6 @@ export default function RootLayout({
       ].join(" ")}
     >
       <head>
-        <Script id="theme-preference" dangerouslySetInnerHTML={{ __html: themeScript }} />
         <Script
           id="organization-json-ld"
           type="application/ld+json"
@@ -82,7 +68,7 @@ export default function RootLayout({
         />
       </head>
       <body className="flex min-h-full flex-col">
-        <ThemeProvider>{children}</ThemeProvider>
+        {children}
       </body>
     </html>
   );

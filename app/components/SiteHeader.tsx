@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { whatsappUrl } from "../seo";
-import { ToggleTheme } from "./ToggleTheme";
 
 const navItems = [
   { href: "/", label: "Inicio" },
@@ -76,11 +75,9 @@ export function SiteHeader() {
           >
             WhatsApp
           </a>
-          <ToggleTheme />
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
-          <ToggleTheme />
           <button
             type="button"
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}

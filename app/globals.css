@@ -21,13 +21,6 @@
   --muted: #5f6b8f;
 }
 
-:root[data-theme="dark"] {
-  --background: var(--footer-dark-blue);
-  --foreground: var(--bg-creamy);
-  --surface: #263f73;
-  --muted: #c8d5ea;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
