@@ -78,12 +78,12 @@ export const metadata: Metadata = buildMetadata({
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white text-purple transition-colors">
+    <main className="min-h-screen bg-white text-primary transition-colors">
       <SiteHeader />
 
       <section className="px-5 py-14 sm:px-8 lg:py-20">
-        <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div className="relative mx-auto w-full max-w-sm lg:mx-0">
+        <div className="mx-auto grid w-full max-w-7xl gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-start">
+          <div className="relative mx-auto w-full max-w-sm md:mx-0">
             <div className="brand-gradient absolute -inset-3 rounded-3xl" />
             <div className="absolute -bottom-4 -right-4 h-28 w-28 rounded-3xl bg-coral/70" />
             <figure className="relative overflow-hidden rounded-3xl border border-purple/10 bg-white p-2 shadow-md shadow-purple/10">
@@ -99,19 +99,16 @@ export default function AboutPage() {
           </div>
 
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-purple">
-              Sobre mí
-            </p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-purple sm:text-6xl">
+            <h1 className="max-w-4xl text-4xl font-semibold leading-tight text-primary sm:text-6xl">
               Psicóloga Karla Leticia Figueroa Hernández
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-purple/70">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-primary/70">
               Soy psicóloga con más de 15 años de experiencia acompañando
               adolescentes, adultos, parejas y familias en procesos de ansiedad,
               depresión, duelo, conflictos de pareja o familiares, autoestima,
               sexualidad, adicciones y habilidades emocionales.
             </p>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-purple/70">
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-primary/70">
               En Consultoría DIH brindo un espacio profesional, humano,
               confidencial, ético e inclusivo para comprender lo que estás
               viviendo y desarrollar herramientas prácticas para recuperar tu
@@ -132,16 +129,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-neutral-warm px-5 py-14 sm:px-8" aria-labelledby="curriculum-title">
+      <section className="px-5 py-14 sm:px-8" style={{ backgroundColor: 'var(--color-primary-light)' }} aria-labelledby="curriculum-title">
         <div className="mx-auto w-full max-w-7xl">
           <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-purple">
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
               Currículum y certificaciones
             </p>
             <h2 id="curriculum-title" className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl">
               Formación profesional y actualización continua
             </h2>
-            <p className="mt-4 text-lg leading-8 text-purple/70">
+            <p className="mt-4 text-lg leading-8 text-primary/70">
               Su formación integra psicología, pedagogía, terapia de pareja,
               terapia sistémica, terapia breve, adicciones y desarrollo humano.
             </p>
@@ -152,11 +149,12 @@ export default function AboutPage() {
               {credentials.map((group) => (
                 <article
                   key={group.category}
-                  className="rounded-[8px] border border-neutral-200 bg-white p-4 shadow-sm"
+                  className="rounded-[8px] border p-4 shadow-sm"
+                  style={{ borderColor: 'var(--color-border-muted)', backgroundColor: 'var(--color-background)' }}
                 >
                   <div
                     className={[
-                      "mb-4 inline-flex rounded-full px-3 py-1 text-sm font-semibold text-purple",
+                      "mb-4 inline-flex rounded-full px-3 py-1 text-sm font-semibold text-primary",
                       group.color,
                     ].join(" ")}
                   >
@@ -164,7 +162,7 @@ export default function AboutPage() {
                   </div>
                   <ul className="grid gap-3">
                     {group.items.map((credential) => (
-                      <li key={credential} className="text-base leading-7 text-purple">
+                      <li key={credential} className="text-base leading-7 text-primary">
                         {credential}
                       </li>
                     ))}
@@ -178,24 +176,24 @@ export default function AboutPage() {
 
       <section className="px-6 py-20 sm:px-8" aria-labelledby="enfoque-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-2">
-          <div className="rounded-3xl border border-purple/10 bg-blush-light p-6 text-purple shadow-md shadow-purple/10 sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal">
+          <div className="rounded-3xl border p-6 shadow-md sm:p-8" style={{ borderColor: 'var(--color-sidebar-border)', backgroundColor: 'var(--color-primary-light)', color: 'var(--color-primary)', boxShadow: '0 4px 6px var(--color-sidebar-border)' }}>
+            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: 'var(--color-secondary)' }}>
               Enfoque terapéutico
             </p>
-            <h2 id="enfoque-title" className="mt-3 text-3xl font-semibold leading-tight text-purple">
+            <h2 id="enfoque-title" className="mt-3 text-3xl font-semibold leading-tight text-primary">
               Atención basada en evidencia y trato humano
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {approaches.map((approach) => (
-                <p key={approach} className="rounded-2xl bg-surface p-3 text-sm font-semibold leading-6 text-purple shadow-sm">
+                <p key={approach} className="rounded-2xl p-3 text-sm font-semibold leading-6 text-primary shadow-sm" style={{ backgroundColor: 'var(--color-surface)' }}>
                   {approach}
                 </p>
               ))}
             </div>
           </div>
 
-          <div className="rounded-3xl border border-purple/10 bg-surface p-6 shadow-md shadow-purple/10 sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-wide text-purple">
+          <div className="rounded-3xl border p-6 shadow-md sm:p-8" style={{ borderColor: 'var(--color-sidebar-border)', backgroundColor: 'var(--color-surface)', boxShadow: '0 4px 6px var(--color-sidebar-border)' }}>
+            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
               Experiencia clínica
             </p>
             <h2 className="mt-3 text-3xl font-semibold leading-tight">
@@ -203,7 +201,7 @@ export default function AboutPage() {
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {experience.map((item) => (
-                <p key={item} className="rounded-2xl bg-lavender-light p-3 text-sm font-semibold leading-6 text-purple">
+                <p key={item} className="rounded-2xl p-3 text-sm font-semibold leading-6 text-primary" style={{ backgroundColor: 'var(--color-primary-light)' }}>
                   {item}
                 </p>
               ))}
@@ -212,16 +210,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-lavender-light px-6 py-20 text-purple sm:px-8" aria-labelledby="contacto-title">
+      <section className="px-6 py-20 sm:px-8" style={{ backgroundColor: 'var(--color-primary-light)', color: 'var(--color-primary)' }} aria-labelledby="contacto-title">
         <div className="mx-auto grid w-full max-w-7xl gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal">
+            <p className="text-sm font-semibold uppercase tracking-wide text-secondary">
               Consultoría DIH
             </p>
-            <h2 id="contacto-title" className="mt-3 text-3xl font-semibold leading-tight text-purple sm:text-4xl">
+            <h2 id="contacto-title" className="mt-3 text-3xl font-semibold leading-tight text-primary sm:text-4xl">
               Terapia presencial en San Andrés Cholula y atención en línea
             </h2>
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-purple/75">
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-primary/75">
               Atención cerca de Angelópolis, Puebla, y sesiones en línea para
               México y el extranjero. Si estás buscando psicóloga en Puebla o
               Cholula, puedes agendar directamente o escribir por WhatsApp.
