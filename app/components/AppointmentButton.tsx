@@ -6,9 +6,9 @@ const calendarLink = "https://calendar.app.google/ekuSLLvPNgWGGFhm8";
 
 const buttonClasses = {
   primary:
-    "inline-flex h-12 items-center justify-center rounded-full bg-key-pink px-6 text-base font-semibold text-background shadow-sm transition-colors hover:bg-key-yellow hover:text-footer-dark-blue",
+    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-md shadow-primary/15 transition-opacity hover:opacity-90",
   yellow:
-    "inline-flex h-12 items-center justify-center rounded-full bg-key-yellow px-6 text-base font-semibold text-footer-dark-blue shadow-sm transition-colors hover:bg-disculparse",
+    "brand-gradient inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold text-white shadow-md shadow-primary/15 transition-opacity hover:opacity-90",
 };
 
 type AppointmentButtonProps = {
@@ -55,18 +55,18 @@ export function AppointmentButton({
 
       {isOpen ? (
         <div
-          className="fixed inset-0 z-50 flex bg-footer-dark-blue/75 sm:items-center sm:p-6"
+          className="fixed inset-0 z-50 flex bg-primary/75 sm:items-center sm:p-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
         >
-          <div className="mx-auto flex h-[100dvh] w-full max-w-6xl flex-col overflow-hidden bg-background shadow-lg sm:h-[92vh] sm:rounded-[8px]">
-            <div className="flex shrink-0 items-center justify-between gap-4 border-b border-footer-blue/15 bg-surface px-4 py-3 sm:px-5">
+          <div className="mx-auto flex h-[100dvh] w-full max-w-6xl flex-col overflow-hidden bg-white shadow-lg sm:h-[92vh] sm:rounded-3xl">
+            <div className="flex shrink-0 items-center justify-between gap-4 border-b border-primary/10 bg-white px-4 py-3 sm:px-5">
               <div>
-                <h2 id={titleId} className="text-lg font-semibold text-foreground">
+                <h2 id={titleId} className="text-lg font-semibold text-primary">
                   Agenda tu cita
                 </h2>
-                <p className="mt-1 text-sm text-muted">
+                <p className="mt-1 text-sm text-primary/70">
                   Selecciona un horario disponible en el calendario.
                 </p>
               </div>
@@ -74,13 +74,13 @@ export function AppointmentButton({
                 type="button"
                 aria-label="Cerrar agenda"
                 onClick={() => setIsOpen(false)}
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-key-yellow text-xl font-semibold text-footer-dark-blue transition-colors hover:bg-key-pink hover:text-background"
+                className="brand-gradient flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xl font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
               >
                 ×
               </button>
             </div>
 
-            <div className="min-h-0 flex-1 bg-surface">
+            <div className="min-h-0 flex-1 bg-white">
               <iframe
                 title="Calendario para agendar cita con la Psicóloga Karla Figueroa"
                 src={calendarLink}
@@ -90,15 +90,15 @@ export function AppointmentButton({
               />
             </div>
 
-            <div className="flex shrink-0 flex-col gap-3 border-t border-footer-blue/15 bg-surface px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
-              <p className="text-sm text-muted">
+            <div className="flex shrink-0 flex-col gap-3 border-t border-primary/10 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+              <p className="text-sm text-primary/70">
                 Si el calendario no carga, abre la agenda directamente.
               </p>
               <a
                 href={calendarLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-10 items-center justify-center rounded-full border border-key-yellow/70 bg-key-yellow px-5 text-sm font-semibold text-footer-dark-blue transition-colors hover:bg-key-pink hover:text-background"
+                className="brand-gradient inline-flex h-10 items-center justify-center rounded-full px-5 text-sm font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
               >
                 Abrir agenda
               </a>
